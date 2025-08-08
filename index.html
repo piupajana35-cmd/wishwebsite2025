@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Wishing Website</title>
+</head>
+<body>
+<p>&lt;!doctype html&gt;</p>
+<p>&lt;html lang=&quot;bn&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&lt;meta charset=&quot;utf-8&quot; /&gt;</p>
+<p>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot; /&gt;</p>
+<p>&lt;title&gt;Wishes Hub — Personalized Wishes for Every Occasion&lt;/title&gt;</p>
+<p>&lt;meta name=&quot;description&quot; content=&quot;Create &amp; share personalized wishes for festivals, mornings, weekdays, birthdays — one link, many templates.&quot; /&gt;</p>
+<p>&lt;!-- Open Graph (edit base URL/imgs after hosting for better previews) --&gt;</p>
+<p>&lt;meta property=&quot;og:title&quot; content=&quot;Personalized Wishes — Send a special wish!&quot; /&gt;</p>
+<p>&lt;meta property=&quot;og:description&quot; content=&quot;Create a personalized wish and share via a single link. Morning, Evening, Weekdays, RakshaBandhan, Diwali, Durga Puja &amp; more.&quot; /&gt;</p>
+<p>&lt;meta property=&quot;og:image&quot; content=&quot;https://images.unsplash.com/photo-1599058917212-3d20f0dc5c72?q=80&amp;w=1200&amp;auto=format&amp;fit=crop&quot; /&gt;</p>
+<p>&lt;meta property=&quot;og:type&quot; content=&quot;website&quot; /&gt;</p>
+<p>&lt;style&gt;</p>
+<p>  :root{--bg:#071026;--card:#07152a;--muted:#9fb0c7;--accent:#ff6b6b}</p>
+<p>  *{box-sizing:border-box}</p>
+<p>  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,&quot;Helvetica Neue&quot;,Arial;background:linear-gradient(180deg,#04122a 0%, #071026 100%);color:#e6f3ff}</p>
+<p>  .wrap{max-width:1100px;margin:28px auto;padding:18px}</p>
+<p>  header{display:flex;align-items:center;gap:14px;margin-bottom:14px}</p>
+<p>  header h1{font-size:20px;margin:0}</p>
+<p>  header p{margin:0;color:var(--muted);font-size:13px}</p>
+<p>  .grid{display:grid;grid-template-columns:360px 1fr;gap:16px}</p>
+<p>  .panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}</p>
+<p>  label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}</p>
+<p>  input[type=&quot;text&quot;], input[type=&quot;url&quot;], select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#eaf6ff}</p>
+<p>  .preview{height:260px;border-radius:10px;overflow:hidden;background:#05111b;border:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center}</p>
+<p>  .preview img{width:100%;height:100%;object-fit:cover}</p>
+<p>  .row{display:flex;gap:8px}</p>
+<p>  .btn{padding:10px 12px;border-radius:8px;border:0;background:linear-gradient(90deg,var(--accent),#ff9a9a);color:#06121a;font-weight:700;cursor:pointer}</p>
+<p>  .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-weight:600}</p>
+<p>  .small{font-size:13px;color:var(--muted)}</p>
+<p>  .template-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}</p>
+<p>  .tpl{padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02);cursor:pointer;border:1px solid rgba(255,255,255,0.02)}</p>
+<p>  .tpl.active{background:linear-gradient(90deg,#ffe0e0, #ffd1d1);color:#06121a;border-color:rgba(255,255,255,0.06);font-weight:700}</p>
+<p>  .share-area{display:flex;gap:8px;align-items:center;margin-top:10px}</p>
+<p>  .out{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#dff3ff}</p>
+<p>  .right .cardItem{margin-bottom:12px}</p>
+<p>  .wishCard{background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.01));padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}</p>
+<p>  .animatedWish{font-size:22px;font-weight:800;color:var(--accent);text-align:center;padding:18px;border-radius:10px}</p>
+<p>  .confetti{position:fixed;left:0;right:0;top:0;bottom:0;pointer-events:none;overflow:hidden;z-index:60}</p>
+<p>  .c{position:absolute;font-size:18px;opacity:0;animation:f 3500ms linear infinite}</p>
+<p>  @keyframes f{0%{transform:translateY(-10vh) rotate(0deg);opacity:1}70%{opacity:1}100%{transform:translateY(110vh) rotate(360deg);opacity:0}}</p>
+<p>  footer{color:var(--muted);font-size:13px;margin-top:12px}</p>
+<p>  .adbox{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.04);padding:10px;border-radius:8px;color:var(--muted);text-align:center}</p>
+<p>  @media(max-width:980px){.grid{grid-template-columns:1fr}.preview{height:200px}}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;div class=&quot;wrap&quot;&gt;</p>
+<p>  &lt;header&gt;</p>
+<p>    &lt;div style=&quot;width:48px;height:48px;border-radius:10px;background:linear-gradient(90deg,#ff9a9a,#ff6b6b);display:flex;align-items:center;justify-content:center;font-weight:800;color:#06121a&quot;&gt;WH&lt;/div&gt;</p>
+<p>    &lt;div&gt;</p>
+<p>      &lt;h1&gt;Wishes Hub — Personalized Wishes&lt;/h1&gt;</p>
+<p>      &lt;p class=&quot;small&quot;&gt;Create &amp; share Morning, Evening, Weekday, Festival &amp; Birthday wishes — one link, many templates.&lt;/p&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>  &lt;/header&gt;</p>
+<p>  &lt;div class=&quot;grid&quot;&gt;</p>
+<p>    &lt;!-- left control --&gt;</p>
+<p>    &lt;div class=&quot;panel&quot;&gt;</p>
+<p>      &lt;div class=&quot;preview&quot; id=&quot;preview&quot;&gt;&lt;img id=&quot;imgPreview&quot; src=&quot;https://images.unsplash.com/photo-1599058917212-3d20f0dc5c72?q=80&amp;w=1200&amp;auto=format&amp;fit=crop&quot; alt=&quot;preview&quot;&gt;&lt;/div&gt;</p>
+<p>      &lt;div style=&quot;margin-top:10px&quot;&gt;</p>
+<p>        &lt;label&gt;Sender name&lt;/label&gt;</p>
+<p>        &lt;input id=&quot;sender&quot; type=&quot;text&quot; placeholder=&quot;e.g., Piupa Didi&quot;&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>      &lt;div style=&quot;margin-top:10px&quot;&gt;</p>
+<p>        &lt;label&gt;Sender image URL (optional)&lt;/label&gt;</p>
+<p>        &lt;input id=&quot;imgUrl&quot; type=&quot;url&quot; placeholder=&quot;Paste hosted image URL (recommended)&quot;&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>      &lt;div style=&quot;margin-top:10px&quot;&gt;</p>
+<p>        &lt;label&gt;Select Template&lt;/label&gt;</p>
+<p>        &lt;div class=&quot;template-list&quot; id=&quot;tplList&quot;&gt;</p>
+<p>          &lt;!-- templates populated by JS --&gt;</p>
+<p>        &lt;/div&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>      &lt;div style=&quot;margin-top:10px&quot;&gt;</p>
+<p>        &lt;label&gt;When / Occasion&lt;/label&gt;</p>
+<p>        &lt;select id=&quot;whenSelect&quot;&gt;</p>
+<p>          &lt;option value=&quot;morning&quot;&gt;Good Morning&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;afternoon&quot;&gt;Good Afternoon&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;evening&quot;&gt;Good Evening&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;monday&quot;&gt;Monday&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;tuesday&quot;&gt;Tuesday&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;wednesday&quot;&gt;Wednesday&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;thursday&quot;&gt;Thursday&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;friday&quot;&gt;Friday&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;saturday&quot;&gt;Saturday&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;rakhi&quot;&gt;Rakshabandhan&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;diwali&quot;&gt;Diwali&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;durga&quot;&gt;Durga Puja&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;birthday&quot;&gt;Birthday&lt;/option&gt;</p>
+<p>        &lt;/select&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>      &lt;div style=&quot;margin-top:10px&quot;&gt;</p>
+<p>        &lt;label class=&quot;small&quot;&gt;Image upload (preview only)&lt;/label&gt;</p>
+<p>        &lt;div class=&quot;row&quot;&gt;</p>
+<p>          &lt;button class=&quot;btn secondary&quot; id=&quot;uploadBtn&quot;&gt;Upload&lt;/button&gt;</p>
+<p>          &lt;input id=&quot;imgFile&quot; type=&quot;file&quot; accept=&quot;image/*&quot; style=&quot;display:none&quot;&gt;</p>
+<p>          &lt;button class=&quot;btn&quot; id=&quot;genBtn&quot;&gt;Generate Link&lt;/button&gt;</p>
+<p>        &lt;/div&gt;</p>
+<p>        &lt;div class=&quot;small&quot; style=&quot;margin-top:8px;color:var(--muted)&quot;&gt;Tip: use a hosted image URL for shareable links (GitHub/Imgur). Local upload previews only on your device.&lt;/div&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>      &lt;div style=&quot;margin-top:12px&quot; class=&quot;adbox small&quot;&gt;</p>
+<p>        Ad placeholder — paste AdSense code here once approved.</p>
+<p>      &lt;/div&gt;</p>
+<p>      &lt;div style=&quot;margin-top:10px&quot;&gt;</p>
+<p>        &lt;label class=&quot;small&quot;&gt;Generated / Final Link&lt;/label&gt;</p>
+<p>        &lt;div class=&quot;row&quot; style=&quot;margin-top:6px&quot;&gt;</p>
+<p>          &lt;input id=&quot;outLink&quot; class=&quot;out&quot; readonly&gt;</p>
+<p>          &lt;button id=&quot;copyBtn&quot; class=&quot;btn secondary&quot;&gt;Copy&lt;/button&gt;</p>
+<p>        &lt;/div&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>      &lt;footer&gt;Made for you — share &amp; spread smiles. &lt;span class=&quot;small&quot;&gt;Host images publicly for best experience.&lt;/span&gt;&lt;/footer&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>    &lt;!-- right preview / recipient view --&gt;</p>
+<p>    &lt;div class=&quot;panel right&quot;&gt;</p>
+<p>      &lt;div class=&quot;cardItem wishCard&quot;&gt;</p>
+<p>        &lt;div style=&quot;display:flex;gap:12px;align-items:center&quot;&gt;</p>
+<p>          &lt;div style=&quot;width:84px;height:84px;border-radius:10px;overflow:hidden&quot;&gt;&lt;img id=&quot;cardImg&quot; src=&quot;https://images.unsplash.com/photo-1599058917212-3d20f0dc5c72?q=80&amp;w=1200&amp;auto=format&amp;fit=crop&quot; style=&quot;width:100%;height:100%;object-fit:cover&quot;&gt;&lt;/div&gt;</p>
+<p>          &lt;div&gt;</p>
+<p>            &lt;div style=&quot;font-weight:800;font-size:16px&quot; id=&quot;cardSender&quot;&gt;From — &lt;span style=&quot;color:var(--accent)&quot;&gt;Your Friend&lt;/span&gt;&lt;/div&gt;</p>
+<p>            &lt;div class=&quot;small&quot; id=&quot;cardOcc&quot;&gt;Occasion: Good Morning&lt;/div&gt;</p>
+<p>          &lt;/div&gt;</p>
+<p>        &lt;/div&gt;</p>
+<p>        &lt;div style=&quot;margin-top:12px&quot;&gt;</p>
+<p>          &lt;label class=&quot;small&quot;&gt;Recipient name&lt;/label&gt;</p>
+<p>          &lt;div class=&quot;row&quot; style=&quot;margin-top:6px&quot;&gt;</p>
+<p>            &lt;input id=&quot;recipient&quot; type=&quot;text&quot; placeholder=&quot;Type recipient name&quot;&gt;</p>
+<p>            &lt;button id=&quot;sendBtn&quot; class=&quot;btn&quot;&gt;Send&lt;/button&gt;</p>
+<p>          &lt;/div&gt;</p>
+<p>        &lt;/div&gt;</p>
+<p>        &lt;div id=&quot;resultArea&quot; style=&quot;display:none;margin-top:12px&quot;&gt;</p>
+<p>          &lt;div class=&quot;animatedWish&quot; id=&quot;finalText&quot;&gt;Happy Wish!&lt;/div&gt;</p>
+<p>          &lt;div style=&quot;display:flex;gap:8px;align-items:center;margin-top:8px&quot;&gt;</p>
+<p>            &lt;button id=&quot;shareFinal&quot; class=&quot;btn&quot;&gt;Copy Wish Link&lt;/button&gt;</p>
+<p>            &lt;button id=&quot;resetBtn&quot; class=&quot;btn secondary&quot;&gt;Reset&lt;/button&gt;</p>
+<p>            &lt;div id=&quot;finalStatus&quot; class=&quot;small&quot; style=&quot;margin-left:auto&quot;&gt;&lt;/div&gt;</p>
+<p>          &lt;/div&gt;</p>
+<p>        &lt;/div&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>      &lt;div style=&quot;margin-top:12px&quot; class=&quot;cardItem&quot;&gt;</p>
+<p>        &lt;div class=&quot;small&quot;&gt;Share via&lt;/div&gt;</p>
+<p>        &lt;div style=&quot;display:flex;gap:8px;margin-top:8px&quot;&gt;</p>
+<p>          &lt;button id=&quot;wa&quot; class=&quot;btn secondary&quot;&gt;WhatsApp&lt;/button&gt;</p>
+<p>          &lt;button id=&quot;fb&quot; class=&quot;btn secondary&quot;&gt;Facebook&lt;/button&gt;</p>
+<p>          &lt;button id=&quot;tg&quot; class=&quot;btn secondary&quot;&gt;Telegram&lt;/button&gt;</p>
+<p>        &lt;/div&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>      &lt;div style=&quot;margin-top:12px&quot; class=&quot;cardItem&quot;&gt;</p>
+<p>        &lt;div class=&quot;small&quot;&gt;Affiliate / Gift Ideas&lt;/div&gt;</p>
+<p>        &lt;div style=&quot;display:flex;gap:8px;margin-top:8px&quot;&gt;</p>
+<p>          &lt;div style=&quot;flex:1;border-radius:8px;padding:8px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)&quot;&gt;</p>
+<p>            &lt;div style=&quot;font-weight:700&quot;&gt;Rakhi Gift Box&lt;/div&gt;</p>
+<p>            &lt;div class=&quot;small&quot; style=&quot;margin-top:6px;color:var(--muted)&quot;&gt;Add your affiliate link here.&lt;/div&gt;</p>
+<p>          &lt;/div&gt;</p>
+<p>          &lt;div style=&quot;width:110px&quot; class=&quot;small adbox&quot;&gt;Sponsor banner&lt;/div&gt;</p>
+<p>        &lt;/div&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>      &lt;div style=&quot;margin-top:12px&quot; class=&quot;cardItem small&quot;&gt;</p>
+<p>        &lt;div style=&quot;font-weight:700;margin-bottom:6px&quot;&gt;Privacy &amp; Terms&lt;/div&gt;</p>
+<p>        &lt;div class=&quot;small&quot; style=&quot;color:var(--muted)&quot;&gt;This template includes terms &amp; privacy placeholders — edit before applying for AdSense.&lt;/div&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>  &lt;/div&gt;</p>
+<p>  &lt;div style=&quot;margin-top:12px&quot; class=&quot;small&quot;&gt;Pro tip: Host images publicly (GitHub/Imgur). Use descriptive templates &amp; festival keywords to get more shares.&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div class=&quot;confetti&quot; id=&quot;confetti&quot;&gt;&lt;/div&gt;</p>
+<p>&lt;script&gt;</p>
+<p>(function(){</p>
+<p>  // Templates data</p>
+<p>  const TEMPLATES = [</p>
+<p>    { id:&#x27;simple&#x27;, title:&#x27;Simple Card&#x27;, preview:&#x27;https://images.unsplash.com/photo-1511974035430-5de47d3b95da?q=80&amp;w=1200&amp;auto=format&amp;fit=crop&#x27;,</p>
+<p>      texts:{</p>
+<p>        morning: &quot;Good morning, {to}! Have a bright &amp; beautiful day — from {from}&quot;,</p>
+<p>        afternoon: &quot;Good afternoon, {to}! Wishing you a lovely day — from {from}&quot;,</p>
+<p>        evening: &quot;Good evening, {to}! Hope your evening is peaceful — from {from}&quot;,</p>
+<p>        rakhi: &quot;Happy Rakshabandhan, {to}! Celebrate with love — from {from}&quot;,</p>
+<p>        diwali: &quot;Happy Diwali, {to}! Wishing you light &amp; joy — from {from}&quot;,</p>
+<p>        durga: &quot;Shubho Durga Pujo, {to}! Blessings &amp; joy — from {from}&quot;,</p>
+<p>        birthday: &quot;Happy Birthday, {to}! Many happy returns — from {from}&quot;,</p>
+<p>        monday:&quot;Happy Monday, {to}! Have a productive week — from {from}&quot;,</p>
+<p>        tuesday:&quot;Happy Tuesday, {to}! Keep smiling — from {from}&quot;,</p>
+<p>        wednesday:&quot;Happy Wednesday, {to}! Halfway there — from {from}&quot;,</p>
+<p>        thursday:&quot;Happy Thursday, {to}! Stay strong — from {from}&quot;,</p>
+<p>        friday:&quot;Happy Friday, {to}! Weekend soon — from {from}&quot;,</p>
+<p>        saturday:&quot;Happy Saturday, {to}! Enjoy your day — from {from}&quot;</p>
+<p>      }</p>
+<p>    },</p>
+<p>    { id:&#x27;floral&#x27;, title:&#x27;Floral Theme&#x27;, preview:&#x27;https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&amp;w=1200&amp;auto=format&amp;fit=crop&#x27; , texts:{</p>
+<p>      morning: &quot;Morning blooms for you, {to} — from {from}&quot;,</p>
+<p>      rakhi: &quot;Rakhi greetings to you, {to} — love, {from}&quot;,</p>
+<p>      diwali: &quot;Lights &amp; flowers, Happy Diwali {to} — from {from}&quot;,</p>
+<p>      birthday: &quot;Blossoms for your birthday, {to} — from {from}&quot;</p>
+<p>    }},</p>
+<p>    { id:&#x27;modern&#x27;, title:&#x27;Modern Neon&#x27;, preview:&#x27;https://images.unsplash.com/photo-1502741126161-b048400d7c6f?q=80&amp;w=1200&amp;auto=format&amp;fit=crop&#x27;, texts:{</p>
+<p>      morning: &quot;Rise &amp; shine, {to}! — {from}&quot;,</p>
+<p>      evening: &quot;Night vibes, {to} — {from}&quot;,</p>
+<p>      rakhi: &quot;Brother &amp; sister love — Happy Rakhi {to}, from {from}&quot;,</p>
+<p>      diwali: &quot;Glow bright — Happy Diwali {to}, from {from}&quot;</p>
+<p>    }}</p>
+<p>  ];</p>
+<p>  // DOM</p>
+<p>  const tplList = document.getElementById(&#x27;tplList&#x27;);</p>
+<p>  const imgPreview = document.getElementById(&#x27;imgPreview&#x27;);</p>
+<p>  const cardImg = document.getElementById(&#x27;cardImg&#x27;);</p>
+<p>  const cardSender = document.getElementById(&#x27;cardSender&#x27;);</p>
+<p>  const cardOcc = document.getElementById(&#x27;cardOcc&#x27;);</p>
+<p>  const senderInput = document.getElementById(&#x27;sender&#x27;);</p>
+<p>  const imgUrlInput = document.getElementById(&#x27;imgUrl&#x27;);</p>
+<p>  const genBtn = document.getElementById(&#x27;genBtn&#x27;);</p>
+<p>  const outLink = document.getElementById(&#x27;outLink&#x27;);</p>
+<p>  const copyBtn = document.getElementById(&#x27;copyBtn&#x27;);</p>
+<p>  const uploadBtn = document.getElementById(&#x27;uploadBtn&#x27;);</p>
+<p>  const imgFile = document.getElementById(&#x27;imgFile&#x27;);</p>
+<p>  const whenSelect = document.getElementById(&#x27;whenSelect&#x27;);</p>
+<p>  const recipientInput = document.getElementById(&#x27;recipient&#x27;);</p>
+<p>  const sendBtn = document.getElementById(&#x27;sendBtn&#x27;);</p>
+<p>  const resultArea = document.getElementById(&#x27;resultArea&#x27;);</p>
+<p>  const finalText = document.getElementById(&#x27;finalText&#x27;);</p>
+<p>  const shareFinal = document.getElementById(&#x27;shareFinal&#x27;);</p>
+<p>  const resetBtn = document.getElementById(&#x27;resetBtn&#x27;);</p>
+<p>  const wa = document.getElementById(&#x27;wa&#x27;);</p>
+<p>  const fb = document.getElementById(&#x27;fb&#x27;);</p>
+<p>  const tg = document.getElementById(&#x27;tg&#x27;);</p>
+<p>  // init templates UI</p>
+<p>  let selectedTpl = TEMPLATES[0].id;</p>
+<p>  TEMPLATES.forEach((t, i)=&gt;{</p>
+<p>    const b = document.createElement(&#x27;div&#x27;); b.className=&#x27;tpl&#x27; + (i===0?&#x27; active&#x27;:&#x27;&#x27;); b.innerText = t.title;</p>
+<p>    b.onclick = ()=&gt; {</p>
+<p>      document.querySelectorAll(&#x27;.tpl&#x27;).forEach(x=&gt;x.classList.remove(&#x27;active&#x27;));</p>
+<p>      b.classList.add(&#x27;active&#x27;);</p>
+<p>      selectedTpl = t.id;</p>
+<p>      setPreview(t.preview);</p>
+<p>    };</p>
+<p>    tplList.appendChild(b);</p>
+<p>  });</p>
+<p>  function setPreview(url){</p>
+<p>    imgPreview.src = url || imgUrlInput.value || imgPreview.src;</p>
+<p>    cardImg.src = url || imgUrlInput.value || cardImg.src;</p>
+<p>  }</p>
+<p>  // load query params if present</p>
+<p>  function qp(k){ return new URLSearchParams(location.search).get(k); }</p>
+<p>  function escapeHtml(s){ return String(s||&#x27;&#x27;).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g, (m)=&gt;({ &#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;,&#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;,&#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;,&#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;,&quot;&#x27;&quot;:&#x27;&amp;#39;&#x27; })[m]); }</p>
+<p>  function buildLink(){</p>
+<p>    const from = (senderInput.value||&#x27;Your Friend&#x27;).trim();</p>
+<p>    const img = (imgUrlInput.value||&#x27;&#x27;).trim();</p>
+<p>    const tpl = selectedTpl;</p>
+<p>    const when = whenSelect.value;</p>
+<p>    const base = location.origin + location.pathname;</p>
+<p>    const params = new URLSearchParams();</p>
+<p>    params.set(&#x27;from&#x27;, from);</p>
+<p>    params.set(&#x27;tpl&#x27;, tpl);</p>
+<p>    params.set(&#x27;when&#x27;, when);</p>
+<p>    if(img) params.set(&#x27;img&#x27;, encodeURIComponent(img));</p>
+<p>    return base + &#x27;?&#x27; + params.toString();</p>
+<p>  }</p>
+<p>  genBtn.addEventListener(&#x27;click&#x27;, ()=&gt;{</p>
+<p>    if(!senderInput.value.trim()){ alert(&#x27;Please enter sender name&#x27;); senderInput.focus(); return; }</p>
+<p>    const link = buildLink();</p>
+<p>    outLink.value = link;</p>
+<p>    copyToClipboard(link);</p>
+<p>    copyBtn.innerText = &#x27;Copied ✓&#x27;;</p>
+<p>    setTimeout(()=&gt; copyBtn.innerText = &#x27;Copy&#x27;,1800);</p>
+<p>    alert(&#x27;Link generated &amp; copied — share it with friends!&#x27;);</p>
+<p>  });</p>
+<p>  copyBtn.addEventListener(&#x27;click&#x27;, ()=&gt; {</p>
+<p>    if(outLink.value) { copyToClipboard(outLink.value); copyBtn.innerText=&#x27;Copied ✓&#x27;; setTimeout(()=&gt; copyBtn.innerText=&#x27;Copy&#x27;,1600); }</p>
+<p>  });</p>
+<p>  uploadBtn.addEventListener(&#x27;click&#x27;, ()=&gt; imgFile.click());</p>
+<p>  imgFile.addEventListener(&#x27;change&#x27;, (ev)=&gt;{</p>
+<p>    const f = ev.target.files[0]; if(!f) return;</p>
+<p>    const reader = new FileReader();</p>
+<p>    reader.onload = ()=&gt; {</p>
+<p>      setPreview(reader.result);</p>
+<p>      imgUrlInput.value = &#x27;&#x27;; alert(&#x27;Preview ready. For shareable links, host the image publicly (GitHub/Imgur) and paste the URL in Image URL box before generating link.&#x27;);</p>
+<p>    };</p>
+<p>    reader.readAsDataURL(f);</p>
+<p>  });</p>
+<p>  function copyToClipboard(t){</p>
+<p>    if(navigator.clipboard &amp;&amp; navigator.clipboard.writeText) navigator.clipboard.writeText(t).catch(()=&gt; fallbackCopy(t));</p>
+<p>    else fallbackCopy(t);</p>
+<p>  }</p>
+<p>  function fallbackCopy(t){ const ta=document.createElement(&#x27;textarea&#x27;); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand(&#x27;copy&#x27;); ta.remove(); }</p>
+<p>  // recipient send</p>
+<p>  sendBtn.addEventListener(&#x27;click&#x27;, ()=&gt; {</p>
+<p>    const to = recipientInput.value.trim();</p>
+<p>    if(!to){ alert(&#x27;Type recipient name&#x27;); recipientInput.focus(); return; }</p>
+<p>    const from = qp(&#x27;from&#x27;) || senderInput.value || &#x27;A Friend&#x27;;</p>
+<p>    const tplId = qp(&#x27;tpl&#x27;) || selectedTpl;</p>
+<p>    const when = qp(&#x27;when&#x27;) || whenSelect.value;</p>
+<p>    const template = TEMPLATES.find(t=&gt;t.id===tplId) || TEMPLATES[0];</p>
+<p>    const textTemplate = (template.texts &amp;&amp; template.texts[when]) || template.texts.morning || &quot;{to} — Best Wishes from {from}&quot;;</p>
+<p>    const text = textTemplate.replace(&#x27;{to}&#x27;, escapeHtml(to)).replace(&#x27;{from}&#x27;, escapeHtml(from));</p>
+<p>    finalText.textContent = text;</p>
+<p>    resultArea.style.display = &#x27;block&#x27;;</p>
+<p>    startConfetti();</p>
+<p>    const base = location.origin + location.pathname;</p>
+<p>    const params = new URLSearchParams();</p>
+<p>    params.set(&#x27;from&#x27;, from);</p>
+<p>    params.set(&#x27;tpl&#x27;, tplId);</p>
+<p>    params.set(&#x27;when&#x27;, when);</p>
+<p>    params.set(&#x27;to&#x27;, to);</p>
+<p>    const finalLink = base + &#x27;?&#x27; + params.toString();</p>
+<p>    outLink.value = finalLink;</p>
+<p>    shareFinal.onclick = ()=&gt; { copyToClipboard(finalLink); document.getElementById(&#x27;finalStatus&#x27;).innerText=&#x27;Copied ✓&#x27;; setTimeout(()=&gt; document.getElementById(&#x27;finalStatus&#x27;).innerText=&#x27;&#x27;,1600); }</p>
+<p>  });</p>
+<p>  resetBtn.addEventListener(&#x27;click&#x27;, ()=&gt; { resultArea.style.display=&#x27;none&#x27;; stopConfetti(); recipientInput.value=&#x27;&#x27;; });</p>
+<p>  // social share</p>
+<p>  wa.addEventListener(&#x27;click&#x27;, ()=&gt; { if(!outLink.value) alert(&#x27;Generate link first&#x27;); else window.open(&#x27;https://wa.me/?text=&#x27; + encodeURIComponent(outLink.value), &#x27;_blank&#x27;); });</p>
+<p>  fb.addEventListener(&#x27;click&#x27;, ()=&gt; { if(!outLink.value) alert(&#x27;Generate link first&#x27;); else window.open(&#x27;https://www.facebook.com/sharer/sharer.php?u=&#x27; + encodeURIComponent(outLink.value),&#x27;_blank&#x27;); });</p>
+<p>  tg.addEventListener(&#x27;click&#x27;, ()=&gt; { if(!outLink.value) alert(&#x27;Generate link first&#x27;); else window.open(&#x27;https://t.me/share/url?url=&#x27; + encodeURIComponent(outLink.value),&#x27;_blank&#x27;); });</p>
+<p>  // handle query params on load</p>
+<p>  function onLoad(){</p>
+<p>    const from = qp(&#x27;from&#x27;); const img = qp(&#x27;img&#x27;); const tpl = qp(&#x27;tpl&#x27;); const when = qp(&#x27;when&#x27;); const to = qp(&#x27;to&#x27;);</p>
+<p>    if(img){ try{ setPreview(decodeURIComponent(img)); imgUrlInput.value = decodeURIComponent(img); } catch(e){ setPreview(img); imgUrlInput.value = img; } }</p>
+<p>    if(from){ senderInput.value = from; cardSender.innerHTML = &#x27;From — &lt;span style=&quot;color:var(--accent)&quot;&gt;&#x27;+escapeHtml(from)+&#x27;&lt;/span&gt;&#x27;; }</p>
+<p>    if(tpl){ selectedTpl = tpl; // activate matching UI</p>
+<p>      document.querySelectorAll(&#x27;.tpl&#x27;).forEach((n,i)=&gt;{ if(TEMPLATES[i].id===tpl) { n.classList.add(&#x27;active&#x27;); setPreview(TEMPLATES[i].preview); } else n.classList.remove(&#x27;active&#x27;); });</p>
+<p>    }</p>
+<p>    if(when){ whenSelect.value = when; cardOcc.innerText = &#x27;Occasion: &#x27; + whenSelect.options[whenSelect.selectedIndex].text; }</p>
+<p>    if(to){ recipientInput.value = to; sendBtn.click(); }</p>
+<p>    // dynamic sync</p>
+<p>    senderInput.addEventListener(&#x27;input&#x27;, ()=&gt; { cardSender.innerHTML = &#x27;From — &lt;span style=&quot;color:var(--accent)&quot;&gt;&#x27;+escapeHtml(senderInput.value||&#x27;Your Friend&#x27;)+&#x27;&lt;/span&gt;&#x27;; });</p>
+<p>    imgUrlInput.addEventListener(&#x27;input&#x27;, ()=&gt; { try{ setPreview(imgUrlInput.value); } catch(e){} });</p>
+<p>    whenSelect.addEventListener(&#x27;change&#x27;, ()=&gt; { cardOcc.innerText = &#x27;Occasion: &#x27; + whenSelect.options[whenSelect.selectedIndex].text; });</p>
+<p>  }</p>
+<p>  // confetti</p>
+<p>  function startConfetti(){ const wrap=document.getElementById(&#x27;confetti&#x27;); wrap.innerHTML=&#x27;&#x27;; const hearts=[&#x27;💖&#x27;,&#x27;💝&#x27;,&#x27;💗&#x27;,&#x27;💞&#x27;,&#x27;💕&#x27;,&#x27;✨&#x27;]; for(let i=0;i&lt;18;i++){ const s=document.createElement(&#x27;div&#x27;); s.className=&#x27;c&#x27;; s.textContent=hearts[i%hearts.length]; s.style.left=(Math.random()*100)+&#x27;%&#x27;; s.style.fontSize=(12+Math.random()*26)+&#x27;px&#x27;; s.style.animationDuration=(2500+Math.random()*2500)+&#x27;ms&#x27;; wrap.appendChild(s);} setTimeout(()=&gt; wrap.innerHTML=&#x27;&#x27;,4200); }</p>
+<p>  function stopConfetti(){ document.getElementById(&#x27;confetti&#x27;).innerHTML=&#x27;&#x27;; }</p>
+<p>  onLoad();</p>
+<p>})();</p>
+<p>&lt;/script&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</p>
+</body>
+</html>
